@@ -45,13 +45,8 @@ while running:
                 else:
                     print("no")
 
-
-  
-
     # Fill the background with white
     #screen.fill((255, 255, 255))
-
-
 
     # Flip the display
     pygame.display.flip()
