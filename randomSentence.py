@@ -20,6 +20,6 @@ def getRandomSentence():
     sentence += getRandomWord("adjectives.txt", numAdjectives) + " "
     sentence += getRandomWord("nouns.txt", numNouns) + " "
     sentence += getRandomWord("adverbs.txt", numAdverbs) + "."
-    print(sentence)
+    return(sentence)
 
 getRandomSentence()
