@@ -22,7 +22,7 @@ titleRect = title.get_rect()
 titleRect.center = (x // 2, y // 8)
 
 # String to type
-stringToType = "While on the first date he accidentally hit his head on the beam. Separation anxiety is what happens when you can't find your phone. Tuesdays are free if you bring a gnome costume. In that instant, everything changed. Whenever he saw a red flag warning at the beach he grabbed his surfboard."
+stringToType = "You can type whatever you want and the length will change according to the string. You can already practise your typing and it's not a problem. We will also need to add cases where when you hold shift or press caps lock, it won't result in a no. We will probably also need to add a case to allow the user to use backspaces."
 
 # Split string to fit word wrap
 string1 = ""
@@ -30,6 +30,7 @@ string2 = ""
 string3 = ""
 string4 = ""
 string5 = ""
+stringList = []
 
 # Font for the string of words
 font = pygame.font.Font('freesansbold.ttf', 26) 
@@ -53,38 +54,38 @@ while len(words) > 0:
     line = ' '.join(line_words)
     lines.append(line)
 
-string1 = lines[0]
-string2 = lines[1]
-string3 = lines[2]
-string4 = lines[3]
-string5 = lines[4]
+#string1 = lines[0]
+#string2 = lines[1]
+#string3 = lines[2]
+#string4 = lines[3]
+#string5 = lines[4]
 
 # String format and position for split lines
 
-text1 = font.render(string1, True, black, grey) 
-text1Rect = text1.get_rect()  
-text1Rect.left = (125) 
-text1Rect.bottom = (175)
+#text1 = font.render(string1, True, black, grey) 
+#text1Rect = text1.get_rect()  
+#text1Rect.left = (125) 
+#text1Rect.bottom = (175)
 
-text2 = font.render(string2, True, black, grey) 
-text2Rect = text2.get_rect()
-text2Rect.left = (125)   
-text2Rect.bottom = (225) 
+#text2 = font.render(string2, True, black, grey) 
+#text2Rect = text2.get_rect()
+#text2Rect.left = (125)   
+#text2Rect.bottom = (225) 
 
-text3 = font.render(string3, True, black, grey) 
-text3Rect = text1.get_rect() 
-text3Rect.left = (125)   
-text3Rect.bottom = (275) 
+#text3 = font.render(string3, True, black, grey) 
+#text3Rect = text1.get_rect() 
+#text3Rect.left = (125)   
+#text3Rect.bottom = (275) 
 
-text4 = font.render(string4, True, black, grey) 
-text4Rect = text4.get_rect()
-text4Rect.left = (125)    
-text4Rect.bottom = (325) 
+#text4 = font.render(string4, True, black, grey) 
+#text4Rect = text4.get_rect()
+#text4Rect.left = (125)    
+#text4Rect.bottom = (325) 
 
-text5 = font.render(string5, True, black, grey) 
-text5Rect = text1.get_rect()
-text5Rect.left = (125)    
-text5Rect.bottom = (375) 
+#text5 = font.render(string5, True, black, grey) 
+#text5Rect = text1.get_rect()
+#text5Rect.left = (125)    
+#text5Rect.bottom = (375) 
 
 #Character index
 currentChar = 0
@@ -101,12 +102,24 @@ while running:
     
     if (finished == False): 
 #--------------------------------------------------------------------------------------------------------------------------------------------
-        screen.blit(title, titleRect) 
-        screen.blit(text1, text1Rect)
-        screen.blit(text2, text2Rect)
-        screen.blit(text3, text3Rect)
-        screen.blit(text4, text4Rect)
-        screen.blit(text5, text5Rect)  
+        screen.blit(title, titleRect)
+
+        printText = ""
+        textLeft = 125
+        textBottom = 175   
+        for x in range(len(lines)):
+            printText = font.render(lines[x], True, black, grey)
+            textRect = printText.get_rect()
+            textRect.left = (textLeft)
+            textRect.bottom = (textBottom)
+            textBottom += 50
+            screen.blit(printText, textRect)
+ 
+        #screen.blit(text1, text1Rect)
+        #screen.blit(text2, text2Rect)
+        #screen.blit(text3, text3Rect)
+        #screen.blit(text4, text4Rect)
+        #screen.blit(text5, text5Rect) 
 #--------------------------------------------------------------------------------------------------------------------------------------------
     
     # Did the user click the window close button?
