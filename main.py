@@ -8,3 +8,5 @@ result = list(filter(lambda x: (x % 13 == 0), my_list))
 
 # display the result
 print("Numbers divisible by 13 are",result)
+
+#hello tamati
