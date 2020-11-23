@@ -12,7 +12,7 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 
 font = pygame.font.Font('freesansbold.ttf', 32)
-stringToType = 'test'
+stringToType = 'hello'
 text = font.render("Type the following: " + stringToType, True, green, blue) 
 textRect = text.get_rect()  
 textRect.center = (500 // 2, 500 // 2) 
@@ -23,10 +23,10 @@ running = True
 finished = False
 while running:
 
-    
+    screen.fill((255, 255, 255)) # (255, 255, 255) RGB value for WHITEfd
     if (finished == False):
         screen.blit(text, textRect) 
-
+    
     # Did the user click the window close button?
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -34,13 +34,15 @@ while running:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 running = False
-            if (pygame.key.name(event.key) == stringToType[currentChar]):
-                print("yes")
-                currentChar += 1
-                if (currentChar == len(stringToType)):
-                    finished = True
-            else:
-                print(currentChar)
+            if (finished == False):
+                if (pygame.key.name(event.key) == stringToType[currentChar]):
+                    print("yes")
+                    currentChar += 1
+                    if (currentChar == len(stringToType)):
+                        finished = True
+                        print("done")
+                else:
+                    print("no")
             
 
     # Fill the background with white
