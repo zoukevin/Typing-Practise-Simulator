@@ -37,30 +37,20 @@ while running:
             if (finished == False):
                 mods = pygame.key.get_mods()
                 
+                keyPressed = (pygame.key.name(event.key))
                 if mods & pygame.KMOD_LSHIFT or mods & pygame.KMOD_CAPS:
-                    if ((pygame.key.name(event.key)).upper() == stringToType[currentChar]):
-                        print("yes")
-                        currentChar += 1
-                        if (currentChar == len(stringToType)):
-                            finished = True
-                            print("done")
-                    else:
-                        print("no")
+                    keyPressed = keyPressed.upper()
+                if (keyPressed == stringToType[currentChar]):
+                    print("yes")
+                    currentChar += 1
+                    if (currentChar == len(stringToType)):
+                        finished = True
+                        print("done")
                 else:
-                    if (pygame.key.name(event.key) == stringToType[currentChar]):
-                        print("yes")
-                        currentChar += 1
-                        if (currentChar == len(stringToType)):
-                            finished = True
-                            print("done")
-                    else:
-                        print("no")
+                    print("no")
 
 
-
-
-                
-            
+  
 
     # Fill the background with white
     #screen.fill((255, 255, 255))
