@@ -36,29 +36,16 @@ while running:
                 running = False
             if (finished == False):
                 mods = pygame.key.get_mods()
-                
-                if mods & pygame.KMOD_LSHIFT or mods & pygame.KMOD_CAPS:
-                    if ((pygame.key.name(event.key)).upper() == stringToType[currentChar]):
-                        print("yes")
-                        currentChar += 1
-                        if (currentChar == len(stringToType)):
-                            finished = True
-                            print("done")
-                    else:
-                        print("no")
+
+            if (pygame.key.name(event.key) == stringToType[currentChar] or (mods & pygame.KMOD_LSHIFT or mods & pygame.KMOD_CAPS)):
+                if ((pygame.key.name(event.key)).upper() == stringToType[currentChar] or pygame.key.name(event.key) == stringToType[currentChar]):
+                    print("yes")
+                    currentChar += 1
+                    if (currentChar == len(stringToType)):
+                        finished = True
+                        print("done")
                 else:
-                    if (pygame.key.name(event.key) == stringToType[currentChar]):
-                        print("yes")
-                        currentChar += 1
-                        if (currentChar == len(stringToType)):
-                            finished = True
-                            print("done")
-                    else:
-                        print("no")
-
-
-
-
+                    print("no")
                 
             
 
