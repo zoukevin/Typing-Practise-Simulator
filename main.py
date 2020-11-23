@@ -4,18 +4,22 @@ from randomSentence import getRandomSentence, getRandomWord
 import pygame
 pygame.init()
 
+windowWidth = 1000
+windowHeight = 400
+
 # Set up the drawing window
-screen = pygame.display.set_mode([500, 500])
+screen = pygame.display.set_mode([windowWidth, windowHeight])
 
 white = (255, 255, 255) 
 green = (0, 255, 0) 
 blue = (0, 0, 128)
 
-font = pygame.font.Font('freesansbold.ttf', 32)
+font = pygame.font.Font('freesansbold.ttf', 20)
+
 stringToType = getRandomSentence()
 text = font.render("Type the following: " + stringToType, True, green, blue) 
 textRect = text.get_rect()  
-textRect.center = (500 // 2, 500 // 2) 
+textRect.center = (windowWidth // 2, windowHeight // 2) 
 currentChar = 0
 
 # Run until the user asks to quit
@@ -40,8 +44,13 @@ while running:
                     print("yes")
                     currentChar += 1
                     if (currentChar == len(stringToType)):
-                        finished = True
+                        #finished = True
                         print("done")
+                        stringToType = getRandomSentence()
+                        text = font.render("Type the following: " + stringToType, True, green, blue) 
+                        textRect = text.get_rect()  
+                        textRect.center = (windowWidth // 2, windowHeight // 2) 
+                        currentChar = 0
                 else:
                     print("no")
 
