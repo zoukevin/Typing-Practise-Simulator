@@ -1,5 +1,5 @@
 # Simple pygame program
-
+from randomSentence import getRandomSentence, getRandomWord
 # Import and initialize the pygame library
 import pygame
 pygame.init()
@@ -12,7 +12,7 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 
 font = pygame.font.Font('freesansbold.ttf', 32)
-stringToType = '&Hello'
+stringToType = getRandomSentence()
 text = font.render("Type the following: " + stringToType, True, green, blue) 
 textRect = text.get_rect()  
 textRect.center = (500 // 2, 500 // 2) 

@@ -1,10 +1,5 @@
 from random import randrange
 
-numNouns = 1525
-numVerbs = 1011
-numAdverbs = 255
-numAdjectives = 527
-
 def getRandomWord(fileName, n):
     randNoun = randrange(n)
     with open(fileName) as fp:
@@ -14,6 +9,12 @@ def getRandomWord(fileName, n):
 
 def getRandomSentence():
     sentence = ""
+
+    numNouns = 1525
+    numVerbs = 1011
+    numAdverbs = 255
+    numAdjectives = 527
+
     sentence += getRandomWord("adjectives.txt", numAdjectives).title() + " "
     sentence += getRandomWord("nouns.txt", numNouns) + " "
     sentence += getRandomWord("verbs.txt", numVerbs) + "s "
@@ -22,4 +23,6 @@ def getRandomSentence():
     sentence += getRandomWord("adverbs.txt", numAdverbs) + "."
     return(sentence)
 
-getRandomSentence()
+
+
+    
