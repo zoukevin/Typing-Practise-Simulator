@@ -12,7 +12,7 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 
 font = pygame.font.Font('freesansbold.ttf', 32)
-stringToType = 'Hello'
+stringToType = '&Hello'
 text = font.render("Type the following: " + stringToType, True, green, blue) 
 textRect = text.get_rect()  
 textRect.center = (500 // 2, 500 // 2) 
@@ -36,11 +36,7 @@ while running:
                 running = False
             if (finished == False):
                 mods = pygame.key.get_mods()
-                
-                keyPressed = (pygame.key.name(event.key))
-                if mods & pygame.KMOD_LSHIFT or mods & pygame.KMOD_CAPS:
-                    keyPressed = keyPressed.upper()
-                if (keyPressed == stringToType[currentChar]):
+                if (event.unicode == stringToType[currentChar]):
                     print("yes")
                     currentChar += 1
                     if (currentChar == len(stringToType)):
@@ -49,6 +45,8 @@ while running:
                 else:
                     print("no")
 
+
+  
 
     # Fill the background with white
     #screen.fill((255, 255, 255))
