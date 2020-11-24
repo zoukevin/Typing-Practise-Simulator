@@ -25,7 +25,11 @@ titleRect = title.get_rect()
 titleRect.center = (x // 2, y // 8)
 
 # String to type
-stringToType = getRandomSentence()
+stringToType = ""
+for i in range(3):
+    stringToType += getRandomSentence() + " "
+stringToType = stringToType.strip()
+
 
 # Split string to fit word wrap
 stringList = []
