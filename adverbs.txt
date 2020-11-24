@@ -197,7 +197,7 @@ last
 within
 along
 lower
-TRUE
+true
 bad
 across
 clear
