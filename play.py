@@ -18,7 +18,7 @@ def startTyping(screen):
     titleRect = title.get_rect()  
     titleRect.center = (x // 2, y // 8)
 
-    NUMSENTENCES = 3
+    NUMSENTENCES = 6
     stringToType = ""
     for i in range(NUMSENTENCES):
         stringToType += getRandomSentence() + " "
@@ -64,7 +64,7 @@ def startTyping(screen):
             for x in range(len(lines)):
                 if (x < currentLine):
                     #Change the colour after sentence is completed
-                    printText = font.render(lines[x], True, green, grey)
+                    printText = font.render(lines[x], True, fade, grey)
                 else:
                     printText = font.render(lines[x], True, black, grey)
                 textRect = printText.get_rect()
