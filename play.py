@@ -79,6 +79,7 @@ def startTyping(screen):
             if event.type == pygame.QUIT:
                 print("quitting")
                 finished = True
+                break
             if event.type == pygame.KEYDOWN:
                 if (finished == False):
                     if (event.unicode == stringToType[currentChar]):
