@@ -16,7 +16,7 @@ def startTyping(screen):
     titleRect = title.get_rect()  
     titleRect.center = (x // 2, y // 8)
 
-    NUMSENTENCES = 3
+    NUMSENTENCES = 1
     stringToType = ""
     for i in range(NUMSENTENCES):
         stringToType += getRandomSentence() + " "

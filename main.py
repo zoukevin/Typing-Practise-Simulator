@@ -3,6 +3,7 @@
 from countdown import countdown
 from welcome import welcome
 from play import startTyping
+from ending import ending
 
 import pygame
 import time
@@ -28,4 +29,4 @@ countdown(black, grey, x, y, screen)
 startTyping(screen)
 
 # Done! Time to quit.
-pygame.quit()
+ending(black, grey, x, y, screen)
