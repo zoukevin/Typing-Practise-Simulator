@@ -64,7 +64,7 @@ def startTyping(screen):
             for x in range(len(lines)):
                 if (x < currentLine):
                     #Change the colour after sentence is completed
-                    printText = font.render(lines[x], True, fade, grey)
+                    printText = font.render(lines[x], True, green, grey)
                 else:
                     printText = font.render(lines[x], True, black, grey)
                 textRect = printText.get_rect()
