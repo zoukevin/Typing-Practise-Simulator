@@ -28,11 +28,6 @@ titleRect.center = (x // 2, y // 8)
 stringToType = getRandomSentence()
 
 # Split string to fit word wrap
-string1 = ""
-string2 = ""
-string3 = ""
-string4 = ""
-string5 = ""
 stringList = []
 
 # Font for the string of words
@@ -57,44 +52,8 @@ while len(words) > 0:
     line = ' '.join(line_words)
     lines.append(line)
 
-#string1 = lines[0]
-#string2 = lines[1]
-#string3 = lines[2]
-#string4 = lines[3]
-#string5 = lines[4]
-
-# String format and position for split lines
-
-#text1 = font.render(string1, True, black, grey) 
-#text1Rect = text1.get_rect()  
-#text1Rect.left = (125) 
-#text1Rect.bottom = (175)
-
-#text2 = font.render(string2, True, black, grey) 
-#text2Rect = text2.get_rect()
-#text2Rect.left = (125)   
-#text2Rect.bottom = (225) 
-
-#text3 = font.render(string3, True, black, grey) 
-#text3Rect = text1.get_rect() 
-#text3Rect.left = (125)   
-#text3Rect.bottom = (275) 
-
-#text4 = font.render(string4, True, black, grey) 
-#text4Rect = text4.get_rect()
-#text4Rect.left = (125)    
-#text4Rect.bottom = (325) 
-
-#text5 = font.render(string5, True, black, grey) 
-#text5Rect = text1.get_rect()
-#text5Rect.left = (125)    
-#text5Rect.bottom = (375) 
-
 #Character index
 currentChar = 0
-
-#--------------------------------------------------------------------------------------------------------------------------------------------
-
 
 # Run until the user asks to quit
 running = True
@@ -104,9 +63,10 @@ while running:
     screen.fill(grey)
     
     if (finished == False): 
-#--------------------------------------------------------------------------------------------------------------------------------------------
+        # Title text
         screen.blit(title, titleRect)
 
+        # Random sentences
         printText = ""
         textLeft = 125
         textBottom = 175   
@@ -116,14 +76,7 @@ while running:
             textRect.left = (textLeft)
             textRect.bottom = (textBottom)
             textBottom += 50
-            screen.blit(printText, textRect)
- 
-        #screen.blit(text1, text1Rect)
-        #screen.blit(text2, text2Rect)
-        #screen.blit(text3, text3Rect)
-        #screen.blit(text4, text4Rect)
-        #screen.blit(text5, text5Rect) 
-#--------------------------------------------------------------------------------------------------------------------------------------------
+            screen.blit(printText, textRect) 
     
     # Did the user click the window close button?
     for event in pygame.event.get():
