@@ -65,6 +65,9 @@ while (running == True):
     # Run until the user asks to quit
     
     finished = False
+    completedLines = []
+    completedCharacters = ""
+
     while not finished:
 
         screen.fill(grey)
@@ -77,13 +80,22 @@ while (running == True):
             printText = ""
             textLeft = 125
             textBottom = 175   
-            for x in range(len(lines)):
-                printText = font.render(lines[x], True, black, grey)
+            for x in lines:
+                printText = font.render(x, True, black, grey)
                 textRect = printText.get_rect()
                 textRect.left = (textLeft)
                 textRect.bottom = (textBottom)
                 textBottom += 50
-                screen.blit(printText, textRect) 
+                screen.blit(printText, textRect)
+            textBottom = 175
+
+            x = completedCharacters
+            printText = font.render(x, True, grey, black)
+            textRect = printText.get_rect()
+            textRect.left = (textLeft)
+            textRect.bottom = (textBottom)
+            textBottom += 50
+            screen.blit(printText, textRect) 
         
         # Did the user click the window close button?
         for event in pygame.event.get():
@@ -97,10 +109,13 @@ while (running == True):
                 if (finished == False):
                     if (event.unicode == stringToType[currentChar]):
                         print("yes")
+                        completedCharacters += stringToType[currentChar]
                         currentChar += 1
                         if (currentChar == len(stringToType)):
                             finished = True
                             currentChar = 0
+                            completedCharacters = ""
+                            completedLines.append(completedCharacters)
                             print("done")
                     else:
                         print("no")
