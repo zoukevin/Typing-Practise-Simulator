@@ -1,7 +1,8 @@
 # Simple pygame program
 
-# Simple pygame program
 from randomSentence import getRandomSentence, getRandomWord
+from countdown import countdown
+from welcome import welcome
 
 # Import and initialize the pygame library
 import pygame
@@ -33,7 +34,6 @@ while (running == True):
         stringToType += getRandomSentence() + " "
     stringToType = stringToType.strip()
 
-
     # Split string to fit word wrap
     stringList = []
 
@@ -59,19 +59,18 @@ while (running == True):
         line = ' '.join(line_words)
         lines.append(line)
 
-    #Character index
     currentChar = 0
-
-    # Run until the user asks to quit
-    
     finished = False
     completedLines = []
     completedCharacters = ""
     currentLine = 0
 
-    while not finished:
+    #Show welcome screen and countdown
+    welcome(black, grey, x, y, screen)    
+    countdown(black, grey, x, y, screen)
 
-        screen.fill(grey)
+    #Begin typing loop
+    while not finished:
         
         if (finished == False): 
             # Title text
