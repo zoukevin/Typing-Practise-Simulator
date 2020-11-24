@@ -1,23 +1,27 @@
 import pygame 
+import math
 from play import startTyping
 
-def ending(black, grey, x, y, screen):
+def ending(black, grey, x, y, screen, totalNum, mistakes, wpm):
     quit = False
-    wpm = 30
-    mistakes = 2
-    totalNum = 10
-    accuracy = totalNum-(totalNum-mistakes)
+    wpm = math.floor(wpm)
+    accuracy = math.floor((totalNum/(totalNum+mistakes)) * 100)
 
     #Message 1
     if (accuracy <= 50):
         message1 = "Good attempt!"
-    elif (accuracy > 50 & accuracy < 76):
+    elif (accuracy > 50 and accuracy < 76):
         message1 = "Great job!"
     else:
         message1 = "Excellent work!"
 
-    message2 = "You have typed a total of " + str(totalNum) + " letters with a total of " + str(mistakes) + " mistakes"
-    message3 = " with a speed of " + str(wpm) + " words per minute."
+    #Message2
+    if mistakes == 1:
+        message2 = "You have typed a total of " + str(totalNum) + " characters with a total of " + str(mistakes) + " mistake"
+    else:
+        message2 = "You have typed a total of " + str(totalNum) + " characters with a total of " + str(mistakes) + " mistakes"
+
+    message3 = " with a speed of " + str(wpm) + " words per minute. and an accuracy of " + str(accuracy) + "%."
     message4 = "Press R to retry or Q to quit"
 
     # Ending format and position
@@ -55,9 +59,7 @@ def ending(black, grey, x, y, screen):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     screen.fill(grey)
-                    startTyping(screen)
+                    return True
                 if event.key == pygame.K_q:
                     quit = True
-
-    pygame.quit()
-
+                    pygame.quit()

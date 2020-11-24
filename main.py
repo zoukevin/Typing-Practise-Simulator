@@ -1,5 +1,4 @@
 # Simple pygame program
-
 from countdown import countdown
 from welcome import welcome
 from play import startTyping
@@ -25,8 +24,8 @@ titleRect.center = (x // 2, y // 8)
 
 welcome(black, grey, x, y, screen)    
 countdown(black, grey, x, y, screen)
+check = True
 
-startTyping(screen)
-
-# Done! Time to quit.
-ending(black, grey, x, y, screen)
+while check:
+    wpm, totalNum, mistakes = startTyping(screen)
+    check = ending(black, grey, x, y, screen, totalNum, mistakes, wpm)

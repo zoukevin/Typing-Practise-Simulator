@@ -1,7 +1,0 @@
-TO BE DONE
-------------
-
-formatting of the text (word wrap)
-formatting of the window
-picking words off the interwebs
-timing
